@@ -260,7 +260,7 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
     this.refreshAccessible = function(){
       this.saveState();
       ItemChecks.forEach(function(check){
-        var $elem = $('#' + toSlug(check.location) + '-' + toSlug(check.name)).closest('.item-check');
+        var $elem = $('#' + toSlug(check.location) + '-' + toSlug(check.name)).closest('.item-check');        
         if (check.available(this.inventory, this.currentAge())){
           $elem.removeClass('inaccessible');
         } else {
@@ -270,6 +270,34 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
           $elem.addClass('peekable');
         } else {
           $elem.removeClass('peekable');
+        }
+
+        // Kinda scuffed but will show checks in ganon's for 2 / 4 med bridge.
+        if(check.location == "Inside Ganon's Castle") {
+          var key = window.location.hash || "";
+          var sets = window.localStorage.getItem(key + "/settings") || "";
+          
+          var settingsList = sets.split(',');
+  
+          if (settingsList[1] == 'RAINBOW_BRIDGE=2 MEDALLIONS' || settingsList[1] == 'RAINBOW_BRIDGE=4 MEDALLIONS') {
+            var medallionsRequiredForBridge = settingsList[1] == 'RAINBOW_BRIDGE=2 MEDALLIONS' ? 2 : 4;
+            var medTotal = 0;
+            var inventory = this.inventory;
+            for(var i = 0; i < inventory.items.length; i++) {
+              if(inventory.items[i].name.toLowerCase().includes('medallion'))
+                medTotal++;
+            }
+
+            if(medTotal >= medallionsRequiredForBridge) {
+              if (check.available(this.inventory, this.currentAge())){
+                $elem.removeClass('inaccessible');
+              } else {
+                $elem.addClass('inaccessible');
+              }
+            } else {
+              $elem.addClass('inaccessible');
+            }
+          }
         }
       }.bind(this));
       ['.location', '.region'].forEach(function(selector){
@@ -290,7 +318,7 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
             $(this).removeClass('peekable');
           }
         });
-      });
+      })      
     }.bind(this);
 
     this.checkPedestal = function(e){
@@ -460,3 +488,15 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
     window.tracker.init();
   });
 });
+
+document.getElementById("resetTracker").onclick = function() {
+  var key = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+
+  window.location.hash = key;
+
+  location.reload();
+  return false;
+};

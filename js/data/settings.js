@@ -7,7 +7,9 @@ define({
   "Show Obtainable Only": true,
   "Hide Collected": true,
   "Rainbow Bridge": {
-    "MEDALLIONS": "Medallions",
+    "2 MEDALLIONS": "2 Medallions",
+    "4 MEDALLIONS": "4 Medallions",
+    "6 MEDALLIONS": "6 Medallions",    
     "VANILLA": "Vanilla",
     "ALL_DUNGEONS": "All Dungeons",
     "OPEN": "Open"
@@ -15,6 +17,10 @@ define({
   "Forest": {
     "OPEN": "Open",
     "CLOSED": "Closed"
+  },
+  "Deku": {    
+    "CLOSED": "Closed",
+    "OPEN": "Open"
   },
   "Door of Time": {
     "OPEN": "Open",

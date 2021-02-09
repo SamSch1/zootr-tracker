@@ -116,7 +116,7 @@ define(["data/locations", "data/itemsAndSongs", "data/abilities", "data/ages", "
   ];
   access[Age.CHILD][Locations.DEKU_TREE] = [
     {locations: [Locations.KOKIRI_FOREST], items: [Items.DEKU_SHIELD, Items.KOKIRI_SWORD]},
-    {locations: [Locations.KOKIRI_FOREST], settings: {FOREST: 'OPEN'}}
+    {locations: [Locations.KOKIRI_FOREST], settings: {FOREST: 'OPEN'}, settings: {DEKU: 'OPEN'}}
   ];
   access[Age.CHILD][Locations.DODONGOS_CAVERN] = [
     {locations: [Locations.DEATH_MOUNTAIN_TRAIL], abilities: [Abilities.BOMB]},
@@ -370,7 +370,11 @@ define(["data/locations", "data/itemsAndSongs", "data/abilities", "data/ages", "
     // rainbow: vanilla
     {locations: [Locations.GANONS_CASTLE], items: [Items.LIGHT_ARROWS, Items.SPIRIT_MEDALLION, Items.SHADOW_MEDALLION], settings: {RAINBOW_BRIDGE: 'VANILLA'}},
     // rainbow: medallions
-    {locations: [Locations.GANONS_CASTLE], items: [Items.SPIRIT_MEDALLION, Items.SHADOW_MEDALLION, Items.FOREST_MEDALLION, Items.FIRE_MEDALLION, Items.WATER_MEDALLION, Items.LIGHT_MEDALLION], settings: {RAINBOW_BRIDGE: 'MEDALLIONS'}},
+    {locations: [Locations.GANONS_CASTLE], items: [Items.SPIRIT_MEDALLION, Items.SHADOW_MEDALLION, Items.FOREST_MEDALLION, Items.FIRE_MEDALLION, Items.WATER_MEDALLION, Items.LIGHT_MEDALLION], settings: {RAINBOW_BRIDGE: '6 MEDALLIONS'}},
+    // rainbow: 2 medallions (logic in checker)
+    {locations: [Locations.GANONS_CASTLE], items: [], settings: {RAINBOW_BRIDGE: '2 MEDALLIONS'}},
+    // rainbow: 4 medallions (logic in checker)
+    {locations: [Locations.GANONS_CASTLE], items: [], settings: {RAINBOW_BRIDGE: '4 MEDALLIONS'}},
     // rainbow: all dungeons
     {locations: [Locations.GANONS_CASTLE], items: [Items.KOKIRI_EMERALD, Items.GORONS_RUBY, Items.ZORAS_SAPPHIRE, Items.SPIRIT_MEDALLION, Items.SHADOW_MEDALLION, Items.FOREST_MEDALLION, Items.FIRE_MEDALLION, Items.WATER_MEDALLION, Items.LIGHT_MEDALLION], settings: {RAINBOW_BRIDGE: 'ALL_DUNGEONS'}},
     // crazy seamwalk stuff
