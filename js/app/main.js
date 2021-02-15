@@ -297,6 +297,27 @@ define(["require", "jquery", "data/ages", "data/abilities", "data/locations", "d
             } else {
               $elem.addClass('inaccessible');
             }
+          } else if (settingsList[1] == 'RAINBOW_BRIDGE=BLITZ BRIDGE') {
+            var totalDungeonRewards = 0;
+            var inventory = this.inventory;
+            for(var i = 0; i < inventory.items.length; i++) {
+              if(inventory.items[i].name.toLowerCase().includes('medallion') 
+                || inventory.items[i].name.toLowerCase().includes("goron's ruby")
+                || inventory.items[i].name.toLowerCase().includes("kokiri emerald")
+                || inventory.items[i].name.toLowerCase().includes("zora's sapphire"))
+                totalDungeonRewards++;
+            }
+            
+            if(totalDungeonRewards >= 4) {
+              if (check.available(this.inventory, this.currentAge())){
+                $elem.removeClass('inaccessible');
+              } else {
+                $elem.addClass('inaccessible');
+              }
+            } else {
+              $elem.addClass('inaccessible');
+            }
+
           }
         }
       }.bind(this));

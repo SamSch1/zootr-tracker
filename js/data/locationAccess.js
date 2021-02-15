@@ -375,6 +375,8 @@ define(["data/locations", "data/itemsAndSongs", "data/abilities", "data/ages", "
     {locations: [Locations.GANONS_CASTLE], items: [], settings: {RAINBOW_BRIDGE: '2 MEDALLIONS'}},
     // rainbow: 4 medallions (logic in checker)
     {locations: [Locations.GANONS_CASTLE], items: [], settings: {RAINBOW_BRIDGE: '4 MEDALLIONS'}},
+    // rainbow: blitz bridge (logic in checker)
+    {locations: [Locations.GANONS_CASTLE], items: [], settings: {RAINBOW_BRIDGE: 'BLITZ BRIDGE'}},
     // rainbow: all dungeons
     {locations: [Locations.GANONS_CASTLE], items: [Items.KOKIRI_EMERALD, Items.GORONS_RUBY, Items.ZORAS_SAPPHIRE, Items.SPIRIT_MEDALLION, Items.SHADOW_MEDALLION, Items.FOREST_MEDALLION, Items.FIRE_MEDALLION, Items.WATER_MEDALLION, Items.LIGHT_MEDALLION], settings: {RAINBOW_BRIDGE: 'ALL_DUNGEONS'}},
     // crazy seamwalk stuff
