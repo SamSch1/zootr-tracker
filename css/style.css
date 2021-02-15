@@ -65,7 +65,7 @@ body {
 #locations.hide-collected .item-check.collected {
   opacity: 0;
   animation: fadeOut 1s forwards;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 @keyframes fadeOut {
